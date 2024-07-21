@@ -25,7 +25,7 @@ public class Jyanken_Chapter26 {
 			String input = scanner.next();
 			if(!input.equals("p") && !input.equals("r") && !input.equals("s")) {
 				System.out.println("正しい手を入力してください");
-				continue;
+				continue;//入力値が不正な場合にwhile文の始めに戻る
 			}else {
 				scanner.close();
 				return this.jyankenMap.get(input);
@@ -38,12 +38,8 @@ public class Jyanken_Chapter26 {
 	
 	public String getRandom() {
 		int rand = (int)Math.floor(Math.random()*3);
-		String hand = switch(rand) {
-		case 0 -> "グー";
-		case 1 -> "チョキ";
-		case 2 -> "パー";
-		default -> null;
-		};
+		String[] hands = {"グー","チョキ","パー"};
+		String hand = hands[rand];
 		
 		return hand;
 	}
